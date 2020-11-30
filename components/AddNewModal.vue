@@ -20,17 +20,38 @@
 
 <script>
 import { priorityTypes } from '../plugins/utils.js'
+import { mapGetters } from 'vuex'
 export default {
 	data() {
 		return {
 			priorityTypes: priorityTypes,
-			title: '',
 			priority: 1,
 		}
 	},
 	methods: {
 		closeModal() {
 			this.$emit('closeModal');
+		}
+	},
+	computed: {
+		...mapGetters({
+			newTodo: 'newTodo'
+		}),
+		title: {
+			get() {
+				return this.newTodo.title
+			},
+			set(value) {
+				this.$store.dispatch('setTitle', value)
+			}
+		},
+		priority: {
+			get() {
+				return ''
+			},
+			set(value) {
+				console.log(value)
+			}
 		}
 	}
 }
