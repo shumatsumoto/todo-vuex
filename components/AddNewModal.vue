@@ -8,9 +8,7 @@
 			<div>
 				<label for="priorityType">優先度</label>
 				<select id="priorityType">
-					<option value="">低</option>
-					<option value="">中</option>
-					<option value="">高</option>
+					<option v-for="(priority, index) in priorityTypes" :key="index" :value="priorityType">{{ priority.value }}</option>
 				</select>
 			</div>
 			<div class="btnWrapper">
@@ -21,7 +19,13 @@
 </template>
 
 <script>
+import { priorityTypes } from '../plugins/utils.js'
 export default {
+	data() {
+		return {
+			priorityTypes: priorityTypes,
+		}
+	},
 	methods: {
 		closeModal() {
 			this.$emit('closeModal');
