@@ -3,14 +3,20 @@
 		<div class="appNameWrapper">
 			<span>Todo App</span>
 		</div>
-		<div class="addNew">
+		<div @click="isShowModal = true" class="addNew">
 			<span>新規作成</span>
 		</div>
+		<AddNewModal v-if="isShowModal" />
 	</div>
 </template>
 
 <script>
 export default {
+	data() {
+		return {
+			isShowModal: false,
+		}
+	}
 
 }
 </script>
