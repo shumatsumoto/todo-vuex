@@ -96,7 +96,7 @@
 }
 .inputArea {
   margin: 0 auto;
-  height: 180px;
+  height: auto;
   width: 500px;
   background-color: white;
   border-radius: 10px;

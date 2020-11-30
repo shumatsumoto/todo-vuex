@@ -6,7 +6,7 @@
 		<div @click="isShowModal = true" class="addNew">
 			<span>新規作成</span>
 		</div>
-		<AddNewModal v-if="isShowModal" />
+		<AddNewModal @closeModal="isShowModal = false" v-if="isShowModal" />
 	</div>
 </template>
 
